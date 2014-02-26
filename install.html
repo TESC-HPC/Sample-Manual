@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Sample-Manual  : Sample ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Sample-Manual</title></head>
+<body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/TESC-HPC/Sample-Manual">View on GitHub</a>
+
+          </header><h1 id="project_title">Sample-Manual </h1>
+          <h2 id="project_tagline">Sample </h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/TESC-HPC/Sample-Manual/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/TESC-HPC/Sample-Manual/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer"><h3><section id="main_content" class="inner"></section><i>e</i>FindSite Manual</h3><h4><a href="index.html">Table of Content</a></h4>
+
+<div dir="ltr"><h2>Installation<br></h2><h4>
+	Perl modules</h4>
+<p class="rtejustify">First, install the following Perl modules, which are available from <a class="ext" href="http://www.cpan.org/" target="_blank">CPAN</a><span class="ext"></span>:</p>
+<table style="width: 100%;" align="left" border="0" cellpadding="5" cellspacing="5">
+<tbody>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>File::Temp</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				<a class="ext" href="http://search.cpan.org/%7Edagolden/File-Temp-0.2301/" target="_blank">http://search.cpan.org/~dagolden/File-Temp-0.2301/</a><span class="ext"></span></td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>File::Slurp</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				<a class="ext" href="http://search.cpan.org/%7Euri/File-Slurp-9999.19/" target="_blank">http://search.cpan.org/~uri/File-Slurp-9999.19/</a><span class="ext"></span></td>
+</tr>
+</tbody>
+</table>
+<p class="rtejustify">For instructions on how to install Per modules, see <a class="ext" href="http://www.cpan.org/modules/INSTALL.html" target="_blank">http://www.cpan.org/modules/INSTALL.html</a><span class="ext"></span>.</p>
+<h4>
+	Libraries</h4>
+<p class="rtejustify">Before you start compiling <em>e</em>FindSite, make sure that the following libraries are available on your system:</p>
+<table style="width: 100%;" align="left" border="0" cellpadding="5" cellspacing="5">
+<tbody>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>zlib</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				<a class="ext" href="http://www.zlib.net//" target="_blank">http://www.zlib.net/</a><span class="ext"></span></td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>gzstream</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				<a class="ext" href="http://www.cs.unc.edu/Research/compgeom/gzstream/" target="_blank">http://www.cs.unc.edu/Research/compgeom/gzstream/</a><span class="ext"></span></td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>f2c</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				<a class="ext" href="http://www.netlib.org/f2c/" target="_blank">http://www.netlib.org/f2c/</a><span class="ext"></span></td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>libsvm</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				<a class="ext" href="http://www.csie.ntu.edu.tw/%7Ecjlin/libsvm/" target="_blank">http://www.csie.ntu.edu.tw/~cjlin/libsvm/</a><span class="ext"></span></td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>apcluster 32bit /64bit</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				<a class="ext" href="http://www.psi.toronto.edu/index.php?q=affinity%20propagation" target="_blank">http://www.psi.toronto.edu/index.php?q=affinity%20propagation</a><span class="ext"></span></td>
+</tr>
+</tbody>
+</table>
+<p class="rtejustify">If you have them installed in locations not 
+recognized by your C++ compiler, depending on your configuration, you 
+may want to copy following files to <span style="font-family: courier new,courier,monospace;">efindsite‐1.0/lib/</span>:</p>
+<table style="width: 100%;" align="left" border="0" cellpadding="5" cellspacing="5">
+<tbody>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>zlib</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				zlib.h, zconf.h, libz.a</td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>gzstream</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				gzstream.h, libgzstream.a</td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>f2c</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				f2c.h, libf2c.a</td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>libsvm</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				svm.h, libsvm.a</td>
+</tr>
+<tr>
+<td style="text-align: center; vertical-align: middle; background-color: rgb(216, 216, 216); width: 200px;">
+				<strong>apcluster 32bit / 64 bit</strong></td>
+<td style="background-color: rgb(240, 240, 240); vertical-align: middle; white-space: nowrap; text-align: left;">
+				apcluster.h apclusterunix64.so/apclusterunix32.so</td>
+</tr>
+</tbody>
+</table>
+<p class="rtejustify"><strong>A note on libsvm:</strong> By default, <em>make</em> does not create <span style="font-family: courier new,courier,monospace;">libsvm.a</span>. Use the archiver <a class="ext" href="http://en.wikipedia.org/wiki/Ar_%28Unix%29" target="_blank"><em>ar</em></a><span class="ext"></span> as shown below to get the required file:</p>
+<table style="width: 100%;" border="0" cellpadding="5" cellspacing="5">
+<tbody>
+<tr>
+<td style="text-align: left; vertical-align: top; background-color: rgb(0, 0, 0);">
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[src]$ tar xzf libsvm-3.17.tar.gz</tt></span></span></span></p>
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[src]$ cd libsvm-3.17/</tt></span></span></span></p>
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[libsvm-3.17]$ make</tt></span></span></span></p>
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[libsvm-3.17]$ ar cr libsvm.a svm.o</tt></span></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4>
+	Compilers</h4>
+<p class="rtejustify">You need a C++ compiler to compile <em>e</em>FindSite source codes. The GNU compiler (<span style="font-family: courier new,courier,monospace;">g++</span>) is set as a default compiler in <em>Makefile</em>; you can check which version is installed on your system using <span style="font-family: courier new,courier,monospace;">-v</span>&nbsp; option:
+</p><table style="width: 100%;" border="0" cellpadding="5" cellspacing="5">
+<tbody>
+<tr>
+<td style="text-align: left; vertical-align: top; background-color: rgb(0, 0, 0);">
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[local]$ g++ -v</tt></span></span></span></p>
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>gcc version 4.4.6 20120305 (Red Hat 4.4.6-4) (GCC)</tt></span></span></span></tt></span></span></span></tt></span></span></span></tt></span></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4>
+	Installation</h4>
+<p class="rtejustify">Download <em>e</em>FindSite from <a href="http://brylinski.cct.lsu.edu/content/efindsite-standalone-package" target="_blank">here</a>, unpack the tarball, go to <span style="font-family: courier new,courier,monospace;">efindsite-1.0/src/</span> and run make:</p>
+<table style="width: 100%;" border="0" cellpadding="5" cellspacing="5">
+<tbody>
+<tr>
+<td style="text-align: left; vertical-align: top; background-color: rgb(0, 0, 0);">
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[local]$ tar xzf efindsite-1.0.tar.gz</tt></span></span></span></p>
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[local]$ cd efindsite-1.0/src/</tt></span></span></span></p>
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[src]$ make</tt></span></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rtejustify">If there are no problems, the following files will show up in <span style="font-family: courier new,courier,monospace;">efindsite-1.0/bin/</span>:</p>
+<table style="width: 100%;" border="0" cellpadding="5" cellspacing="5">
+<tbody>
+<tr>
+<td style="text-align: left; vertical-align: top; background-color: rgb(0, 0, 0);">
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[src]$ ls ../bin/</tt></span></span></span></p>
+<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>efindsite<br>
+					efindsite_map<br>
+					efindsite_scr</tt></span></span></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p><p class="rtejustify"></p><p><br><br></p>
+</div>
+
+<p><br></p>
+
+<p>
+</p>
+      
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        </footer><p class="copyright">Sample-Manual  maintained by <a href="https://github.com/TESC-HPC">TESC-HPC</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      
+    </div>
+
+    
+
+  </body></html>
