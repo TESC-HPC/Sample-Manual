@@ -2,11 +2,11 @@
 <html><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Sample-Manual  : Sample ">
+    <meta name="description" content="Sample Manual ">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Sample-Manual</title></head>
+    <title>Moleular Docking</title></head>
 <body>
 
     <!-- HEADER -->
@@ -14,132 +14,48 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/TESC-HPC/Sample-Manual">View on GitHub</a>
 
-          <h1 id="project_title">Sample-Manual </h1>
+          <h1 id="project_title">Sample Manual </h1>
           <h2 id="project_tagline">Sample </h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/TESC-HPC/Sample-Manual/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/TESC-HPC/Sample-Manual/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/TESC-HPC/Sample-Manual/zipball/code">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/TESC-HPC/Sample-Manual/tarball/code">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-    <section id="main_content" class="inner">
-    
-    <p><h3><i>e</i>FindSite Manual</h3><h4><a href="index.html">Table of Content</a></h4>
-
-<h2>Example</h2> 
-                                
+      <section id="main_content" class="inner">
         
-    <p class="rtejustify">In this example, we show how to use <em>e</em>FindSite
- to predict binding pockets of a given protein. Our target is 210 aa 
-long glutathione S-transferase chain A (PDB-ID: 13gsA), whose amino acid
- sequence is shown below.</p>
-<div>
-	<fieldset><br>
-		<legend><strong>13gsA.fasta</strong></legend><span style="font-family: courier new,courier,monospace;">&gt;13gsA 210<br>
-		MPPYTVVYFPVRGRCAALRMLLADQGQSWKEEVVTVETWQEGSLKASCLYGQLPKFQDGDLTLYQSNTIL<br>
-		RHLGRTLGLYGKDQQEAALVDMVNDGVEDLRCKYISLIYTNYEAGKDDYVKALPGQLKPFETLLSQNQGG<br>
-		KTFIVGDQISFADYNLLDLLLIHEVLAPGCLDAFPLLSAYVGRLSARPKLKAFLASPEYVNLPINGNGKQ</span></fieldset>
-</div>
-<p class="rtejustify">First, using the <a href="http://brylinski.cct.lsu.edu/sites/all/modules/pubdlcnt/pubdlcnt.php?file=/sites/default/files/tutorial/efindsite/13gsA.fasta&amp;nid=439">target sequence</a>, you need to run threading or a similar procedure to collect evolutionary related templates. Here, we will use <a href="http://brylinski.cct.lsu.edu/ethread"><em>e</em>Thread</a>, but in principle, you can use other techniques as well; see notes on <a href="http://brylinski.cct.lsu.edu/content/template-libraries">template libraries and mapping files</a>.</p>
-<p class="rtejustify">The crystal structure of this protein has been solved and can be obtained from <a class="ext" href="http://www.rcsb.org/pdb/explore/explore.do?structureId=13gs" target="_blank">PDB</a><span class="ext"></span>.
- Note that the original PDB file contains two chains: A and B. Since we 
-will be focusing on chain A, you need to do some editing of the 
-structure file to make sure that the input file for <em>e</em>FindSite contains chain A only.</p>
-<p class="rtejustify">In addition, you will need secondary structure predicted by <a class="ext" href="http://bioinf.cs.ucl.ac.uk/psipred/" target="_blank">PSIPRED</a><span class="ext"></span> and a sequence profile file. The construction of sequence profiles is discussed in the <a href="http://brylinski.cct.lsu.edu/content/sequence-profiles">previous section</a>; instructions for PSIPRED are <a href="http://brylinski.cct.lsu.edu/content/psipred-0">here</a>.</p>
-<p>For <em>e</em>FindSite, four input files are required:</p>
-<ul><li>
-		<a href="http://brylinski.cct.lsu.edu/sites/all/modules/pubdlcnt/pubdlcnt.php?file=/sites/default/files/tutorial/efindsite/13gsA.pdb&amp;nid=439">13gsA.pdb</a> (target structure in <a class="ext" href="http://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html" target="_blank">PDB format</a><span class="ext"></span>)</li><li>
-		<a href="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA.ethread-fun">13gsA.ethread-fun</a> (list of templates)</li><li>
-		<a href="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA.ss">13gsA.ss</a> (secondary structure profile)</li><li>
-		<a href="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA.prf">13gsA.prf</a> (sequence profile)</li></ul>
-<p class="rtejustify"><strong>Note:</strong> If you use threading algorithm other than <em>e</em>Thread, the list of templates should have only one column that lists template IDs, e.g. <a href="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA.templates">13gsA.templates</a>.</p>
-<p class="rtejustify">Lets put these files in a directory called <span style="font-family: courier new,courier,monospace;">example/</span>. Now, export environmental variables (Mac OSX users skip <span style="font-family: courier new,courier,monospace;">EF_APL</span>):</p>
-<table style="width: 100%;" border="0" cellpadding="5" cellspacing="5">
-<tbody>
-<tr>
-<td style="text-align: left; vertical-align: top; background-color: rgb(0, 0, 0);">
-<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[example]$ export EF_</tt></span></span></span><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>LIB=/usr/local/libraries/efindsite-lib-latest</tt></span></span></span></p>
-<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[example]$ export EF_</tt></span></span></span><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>MAP=/usr/local/libraries/efindsite-lib-latest/ethread-lib-jan2012.map</tt></span></span></span></p>
-<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[example]$ export EF_</tt></span></span></span><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>MOD=</tt></span></span></span><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>/usr/local/efindsite-1.0/mod</tt></span></span></span></p>
-<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[example]$ export EF_</tt></span></span></span><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>APL=</tt></span></span></span><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>/usr/local/efindsite-1.0/lib/apclusterunix64.so </tt></span></span></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>and run <em>efindsite</em>:</p>
-<table style="width: 100%;" border="0" cellpadding="5" cellspacing="5">
-<tbody>
-<tr>
-<td style="text-align: left; vertical-align: top; background-color: rgb(0, 0, 0);">
-<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[example]$ /usr/local/efindsite-1.0/bin/efindsite -s 13gsA.pdb -t 13gsA.ethread-fun -i 13gsA.ss -e 13gsA.prf -o 13gsA-efindsite</tt></span></span></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rtejustify">You should get 5 output files:</p>
-<ul><li>
-		<a href="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA-efindsite.pockets.dat">13gsA-efindsite.pockets.dat</a> (detailed info on predicted pockets)</li><li>
-		<a href="http://brylinski.cct.lsu.edu/sites/all/modules/pubdlcnt/pubdlcnt.php?file=/sites/default/files/tutorial/efindsite/13gsA-efindsite.pockets.pdb&amp;nid=439">13gsA-efindsite.pockets.pdb</a> (predicted pockets in <a class="ext" href="http://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html" target="_blank">PDB format</a><span class="ext"></span>)</li><li>
-		<a href="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA-efindsite.alignments.dat">13gsA-efindsite.alignments.dat</a> (structure alignments of templates onto the target in <a class="ext" href="http://en.wikipedia.org/wiki/FASTA_format" target="_blank">FASTA format</a><span class="ext"></span>)</li><li>
-		<a href="http://brylinski.cct.lsu.edu/sites/all/modules/pubdlcnt/pubdlcnt.php?file=/sites/default/files/tutorial/efindsite/13gsA-efindsite.templates.pdb&amp;nid=439">13gsA-efindsite.templates.pdb</a> (template structures aligned onto the target in <a class="ext" href="http://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html" target="_blank">PDB format</a><span class="ext"></span>)</li><li>
-		<a href="http://brylinski.cct.lsu.edu/sites/all/modules/pubdlcnt/pubdlcnt.php?file=/sites/default/files/tutorial/efindsite/13gsA-efindsite.ligands.sdf&amp;nid=439">13gsA-efindsite.ligands.sdf</a> (extracted binding ligands in <a class="ext" href="http://en.wikipedia.org/wiki/Chemical_table_file" target="_blank">SDF format</a><span class="ext"></span>)</li></ul>
-<p class="rtejustify">Note that in <em>e</em>FindSite, you can 
-optionally include the chemical properties of binding ligands if such 
-information is available. Lets assume that we know our target binds 
-glutathione; in that case, you can download glutathione from e.g. <a class="ext" href="http://pubchem.ncbi.nlm.nih.gov/" target="_blank">PubChem</a><span class="ext"></span> (CID: <a class="ext" href="http://pubchem.ncbi.nlm.nih.gov/summary/summary.cgi?cid=124886" target="_blank">124886</a><span class="ext"></span>) and then provide a <a class="ext" href="http://en.wikipedia.org/wiki/Chemical_table_file" target="_blank">SDF-formatted</a><span class="ext"></span> file that contains glutathione (<a href="http://brylinski.cct.lsu.edu/sites/all/modules/pubdlcnt/pubdlcnt.php?file=/sites/default/files/tutorial/efindsite/CID_124886.sdf&amp;nid=439">CID_124886.sdf</a>) using <span style="font-family: courier new,courier,monospace;">-l</span> option as follows:</p>
-<table style="width: 100%;" border="0" cellpadding="5" cellspacing="5">
-<tbody>
-<tr>
-<td style="text-align: left; vertical-align: top; background-color: rgb(0, 0, 0);">
-<p><span style="color: rgb(255, 165, 0);"><span style="font-size: 14px;"><span style="font-family: courier new,courier,monospace;"><tt>[example]$
- /usr/local/efindsite-1.0/bin/efindsite -s 13gsA.pdb -t 
-13gsA.ethread-fun -i 13gsA.ss -e 13gsA.prf -l CID_124886.sdf -o 
-13gsA-efindsite</tt></span></span></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rtejustify">The number and format of output files will be 
-exactly the same; however, pocket ranking and confidence estimates may 
-be different due to additional information on binding ligand(s) included
- in the prediction procedure. The auxiliary ligand file may contain more
- than one compound.</p>
-<p class="rtejustify">Images below visualize the results. Figure on the left shows the target structure used as input for <em>e</em>FindSite.
- The crystal structure contains a glutathione molecule bound in the 
-active site. We did not include this information in <em>e</em>FindSite; 
-however, we can use the bound ligand to assess the accuracy of binding 
-pocket and residue prediction. This is shown in figure on the right, 
-where the bound ligand is represented by sticks colored by atom type and
- the predicted binding pocket and residues are represented by gray 
-surface and green sticks, respectively (click on images to zoom).</p>
-<table style="width: 600px;" border="0" cellpadding="5" cellspacing="5">
-<tbody>
-<tr>
-<td style="width: 300px; text-align: center; vertical-align: middle;">
-				<a class="lightbox-processed" href="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA-target_1.png" rel="lightbox[13gsA][Target structure]" title="Target structure"><img alt="csb01" src="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA-target_2.png" style="width: 300px; height: auto;"></a></td>
-<td style="width: 300px; text-align: center; vertical-align: middle;">
-				<a class="lightbox-processed" href="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA-pocket_1.png" rel="lightbox[13gsA][Predicted binding pocket and residues]" title="Predicted binding pocket and residues"><img alt="csb01" src="http://brylinski.cct.lsu.edu/sites/default/files/tutorial/efindsite/13gsA-pocket_2.png" style="width: 300px; height: auto;"></a></td>
-</tr>
-<tr>
-<td style="width: 300px; text-align: center; vertical-align: middle;">
-				<span style="font-family: verdana,geneva,sans-serif;">Target structure</span></td>
-<td style="width: 300px; text-align: center; vertical-align: middle;">
-				<span style="font-family: verdana,geneva,sans-serif;">Predicted binding pocket and residues</span></td>
-</tr>
-</tbody>
-</table>
+    <p>
+</p>
 
+
+<div dir="ltr">
+    <h1>Sample Manual documentation<a class="headerlink" href="#Sample-Manual-documentation" title="Permalink to this headline"></a></h1>
+
+<div class="section" id="citation">
+<h3>Example<a class="headerlink" href="#citation" title="Permalink to this headline"></a></h3>
+
+
+
+<h5><a class="reference internal" href="index.html">Contents</a></h5>
+
+<li>provide input file and describe how to prepare input data</li>
+<li>how to run the software with input data</li>
+<li>provide output data and give output explain and interpretation</li>
+</div>
+    
+    
+<p><br><br></p>
 </div>
 
 <p><br></p>
 
 <p>
 </p>
-     </section> 
+       </section>
     </div>
 
     <!-- FOOTER  -->
